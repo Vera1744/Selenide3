@@ -40,7 +40,7 @@ class AuthTest {
         $("[data-test-id=password] input").setValue(notRegisteredUser.getPassword());
         $("[data-test-id=action-login] .button__content").click();
         $("[data-test-id=error-notification] .notification__content")
-                .shouldBe(Condition.text("Ошибка! " + "Неверно указан логин или пароль"),Duration.ofSeconds(15))
+                .shouldHave(Condition.text("Ошибка! Неверно указан логин или пароль"),Duration.ofSeconds(15))
                 .shouldBe(Condition.visible);
     }
 
@@ -65,7 +65,7 @@ class AuthTest {
         $("[data-test-id=password] input").setValue(registeredUser.getPassword());
         $("[data-test-id=action-login] .button__content").click();
         $("[data-test-id=error-notification] .notification__content")
-                .shouldBe(Condition.text("Ошибка! " + "Неверно указан логин или пароль"), Duration.ofSeconds(15))
+                .shouldHave(Condition.text("Ошибка! Неверно указан логин или пароль"), Duration.ofSeconds(15))
                 .shouldBe(Condition.visible);
     }
 
@@ -78,7 +78,7 @@ class AuthTest {
         $("[data-test-id=password] input").setValue(wrongPassword);
         $("[data-test-id=action-login] .button__content").click();
         $("[data-test-id=error-notification] .notification__content")
-                .shouldHave(Condition.text("Ошибка! " + "Неверно указан логин или пароль"), Duration.ofSeconds(10))
+                .shouldHave(Condition.text("Ошибка! Неверно указан логин или пароль"), Duration.ofSeconds(10))
                 .shouldBe(Condition.visible);
     }
 
